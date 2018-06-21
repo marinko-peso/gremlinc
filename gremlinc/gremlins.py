@@ -24,7 +24,7 @@ def convert_binary_to_zwc(binary):
 
 def release(txt):
     binary = convert_txt_to_binary(txt)
-    gremlins = convert_binary_to_zwc(binary)
+    gremlins = list(convert_binary_to_zwc(binary))
 
     # Lets make some borders around our gremlins.
     gremlins.insert(0, ZW_NO_BREAK_SPACE)
@@ -33,8 +33,31 @@ def release(txt):
     return ''.join(gremlins)
 
 
-def contain(gremlins):
-    pass
+def contain(text_with_gremlins):
+    if type(text_with_gremlins) is not str:
+        raise Exception('Expected input to be a type of string.')
+    if text_with_gremlins.count(ZW_NO_BREAK_SPACE) != 2:
+        raise Exception('Incorrect gremlins format, missing border characters.')
+
+    binary = []
+    bchar = []
+    inside = False
+    for ch in text_with_gremlins:
+        if ch == ZW_NO_BREAK_SPACE:
+            if not inside:
+                inside = True
+                continue
+            binary.append(''.join(bchar))
+            break
+
+        if ch == ZW_SPACE:
+            binary.append(''.join(bchar))
+            bchar = []
+            continue
+
+        bchar.append('1' if ch == ZW_JOINER else '0')
+
+    return ''.join(map(lambda x: chr(int(x[:8], 2)), binary))
 
 
 if __name__ == '__main__':
