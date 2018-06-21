@@ -7,11 +7,11 @@ ZW_SPACE = u'\u200B'
 ZW_NO_BREAK_SPACE = u'\uFEFF'
 
 
-def convert_txt_to_binary(txt):
+def _convert_txt_to_binary(txt):
     return ' '.join(format(ord(x), 'b') for x in txt)
 
 
-def convert_binary_to_zwc(binary):
+def _convert_binary_to_zwc(binary):
     def map_char(x):
         if x == '1':
             return ZW_JOINER
@@ -23,8 +23,8 @@ def convert_binary_to_zwc(binary):
 
 
 def release(txt):
-    binary = convert_txt_to_binary(txt)
-    gremlins = list(convert_binary_to_zwc(binary))
+    binary = _convert_txt_to_binary(txt)
+    gremlins = list(_convert_binary_to_zwc(binary))
 
     # Lets make some borders around our gremlins.
     gremlins.insert(0, ZW_NO_BREAK_SPACE)

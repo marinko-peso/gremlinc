@@ -6,6 +6,8 @@ name = "pypi"
 [dev-packages]
 
 [packages]
+setuptools = "*"
+twine = "*"
 
 [requires]
 python_version = "3.6"
