@@ -10,14 +10,20 @@ Hide a message using zero width characters.
 
 # Installation
 
-Available via PyPi
+Available via PyPi, latest version 0.3.
 ```sh
 pip install gremlinc
 ```
 
 # Usage
 
-Work in progress.
+```python
+from gremlinc import release, contain
+
+text_in_gremlins = release('Your text goes here')
+original_text = contain(text_in_gremlins)
+```
+Ideal for hiding messages in Javascript variables and DOM elements.
 
 
 # License
