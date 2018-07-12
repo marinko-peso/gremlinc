@@ -4,6 +4,7 @@
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/gremlinc.svg)](https://pypi.org/project/gremlinc/)
 [![license](https://img.shields.io/github/license/marinko-peso/gremlinc.svg)](https://github.com/marinko-peso/gremlinc/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![Last Commit](https://img.shields.io/github/last-commit/marinko-peso/gremlinc.svg?maxAge=3600)](https://github.com/marinko-peso/gremlinc/commits/master)
 
 Hide a message using zero width characters.
 
